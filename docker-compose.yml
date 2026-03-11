@@ -1,0 +1,23 @@
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_HOST=100.93.95.56
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - NODE_ENV=production
+      - WEBHOOK_URL=http://100.93.95.56/n8n/
+      - N8N_PATH=/n8n/
+      - N8N_SECURE_COOKIE=false
+      - N8N_BLOCK_NODES=""
+      - NODES_EXCLUDE=""
+      - N8N_NODES_EXECUTECOMMAND_DISABLED=false
+      - GENERIC_TIMEZONE=America/Los_Angeles
+    volumes:
+      - /media/gopi/2Tb/apps/n8n/data:/home/node/.n8n
+      - /media/gopi/2Tb/00-repos/scripts:/media/gopi/2Tb/00-repos/scripts
+      - /media/gopi/2Tb/00-repos/gbot-src:/media/gopi/2Tb/00-repos/gbot-src
+      - /media/gopi/2Tb/www:/media/gopi/2Tb/www
